@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RestService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:18964/RestService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:18964/RestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:18964/RestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfRest" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRestService_GetMainPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainPage" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetMainPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMainPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserName" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PutUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutUserName" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PutUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccount" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_GetAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostAccount" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PostAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PutAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutAccount" />
+  </wsdl:message>
+  <wsdl:message name="IRestService_PutAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutAccountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRestService">
+    <wsdl:operation name="GetMainPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestService/GetMainPage" message="tns:IRestService_GetMainPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestService/GetMainPageResponse" message="tns:IRestService_GetMainPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestService/GetUserName" message="tns:IRestService_GetUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestService/GetUserNameResponse" message="tns:IRestService_GetUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestService/PutUserName" message="tns:IRestService_PutUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestService/PutUserNameResponse" message="tns:IRestService_PutUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestService/GetAccounts" message="tns:IRestService_GetAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestService/GetAccountsResponse" message="tns:IRestService_GetAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestService/GetAccount" message="tns:IRestService_GetAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestService/GetAccountResponse" message="tns:IRestService_GetAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestService/PostAccount" message="tns:IRestService_PostAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestService/PostAccountResponse" message="tns:IRestService_PostAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestService/PutAccount" message="tns:IRestService_PutAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestService/PutAccountResponse" message="tns:IRestService_PutAccount_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="RestService" />
+</wsdl:definitions>
