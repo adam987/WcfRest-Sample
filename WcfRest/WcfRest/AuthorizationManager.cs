@@ -22,7 +22,8 @@ namespace WcfRest
             }
 
             OutgoingContext.Headers.Add("WWW-Authenticate", "Basic realm=\"WcfRest\"");
-            throw new WebFaultException(HttpStatusCode.Unauthorized);
+            OutgoingContext.StatusCode = HttpStatusCode.Unauthorized;
+            return false;
         }
 
         private static string ConvertFromBase64(string header)
