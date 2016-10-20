@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
@@ -13,16 +12,7 @@ namespace WcfRest
 
         protected override bool CheckAccessCore(OperationContext operationContext)
         {
-            var authHeader = IncomingContext.Headers["Authorization"];
-            if (!string.IsNullOrEmpty(authHeader))
-            {
-                var credentials = ConvertFromBase64(authHeader.Substring(6)).Split(':');
-                if ((credentials.Length == 2) && (credentials[0] == "user") && (credentials[1] == "pass"))
-                    return true;
-            }
-
-            OutgoingContext.Headers.Add("WWW-Authenticate", "Basic realm=\"WcfRest\"");
-            throw new WebFaultException(HttpStatusCode.Unauthorized);
+            return true;
         }
 
         private static string ConvertFromBase64(string header)
