@@ -55,16 +55,17 @@ namespace WcfRest
         {
             var guid = Guid.Parse(stringGuid);
             account.Guid = guid;
+
+            if (account.Balance < 0)
+                throw new WebFaultException<CustomError>(
+                    new CustomError { Account = account, Message = "Invalid balance" }, HttpStatusCode.BadRequest);
+
             var existingAccount = _accounts.SingleOrDefault(acc => acc.Guid == guid);
             if (existingAccount == null)
             {
                 CreateAccount(account);
                 return;
             }
-
-            if (account.Balance < 0)
-                throw new WebFaultException<CustomError>(
-                    new CustomError {Account = existingAccount, Message = "Invalid balance"}, HttpStatusCode.BadRequest);
 
             _accounts.Remove(existingAccount);
             _accounts.Add(account);
