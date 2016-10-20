@@ -68,12 +68,13 @@ namespace RestClient
             return null;
         }
 
-        private static void WriteBody(WebRequest request, string body, string contentType)
+        private static void WriteBody(WebRequest request, string body, string contentType, string method)
         {
             try
             {
                 request.ContentLength = body.Length;
                 request.ContentType = contentType;
+                request.Method = method;
                 var streamWriter = new StreamWriter(request.GetRequestStream()) {AutoFlush = true};
                 streamWriter.Write(body);
                 streamWriter.Close();
